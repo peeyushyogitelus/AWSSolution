@@ -20,6 +20,19 @@ namespace AWS_app.Controllers {
 
         public IActionResult Privacy()
         {
+            //Read Query Data 
+
+            string strCode = HttpContext.Request.Query["code"].ToString();
+            if (!string.IsNullOrEmpty(strCode))
+            {
+                ViewBag.Code = strCode;
+            }
+            else {
+                ViewBag.Code = "";
+            }
+
+
+
             ViewBag.Controller = TempData["controller"];
             ViewBag.Action = TempData["action"];
             return View();
